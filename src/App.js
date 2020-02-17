@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import Table from './components/Table';
+import API from './utils/API';
 
 function App() {
+
+  const [allUsers, setUsers] = useState([]);
+
+  API.search()
+    .then(response => {
+      let allUsersRaw = response.data.results;
+      let allUsers = [];
+      for (let user of allUsersRaw) {
+        allUsers.push({name: user.name.first + ' ' + user.name.last, 
+                      img: user.picture.thumbnail, 
+                      email: user.email, 
+                      userId: user.login.username, 
+                      date: user.registered.date})
+      }
+      //setUsers(allUsers); 
+    }
+    )
+    .catch(); 
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar/>
+      <Table allUsers = {allUsers}/>
     </div>
   );
 }
