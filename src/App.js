@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Table from './components/Table';
 import API from './utils/API';
 
 function App() {
-
   const [allUsers, setUsers] = useState([]);
 
-  API.search()
+  useEffect(() => {
+    API.search()
     .then(response => {
       let allUsersRaw = response.data.results;
       let allUsers = [];
@@ -18,11 +18,13 @@ function App() {
                       email: user.email, 
                       userId: user.login.username, 
                       date: user.registered.date})
-      }
-      //setUsers(allUsers); 
+      };
+
+      setUsers(allUsers); 
     }
     )
-    .catch(); 
+    .catch(error => {throw error}); 
+  }, []);
   
   return (
     <div>
