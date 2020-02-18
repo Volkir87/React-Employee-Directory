@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const numUsers = 5;
+const numUsers = 10;
 
 export default {
     search: function(){

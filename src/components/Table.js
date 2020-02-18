@@ -109,7 +109,7 @@ function Table({allUsers}) {
                 </tr>
                 </thead>
                 <tbody>
-                    {(users.length > 0) ? users.map((v) => <Record record={v}/>) : <tr><td>Please wait</td></tr>}
+                    {(users.length > 0) ? users.map((v) => <Record record={v}/>) : <tr><td>No records found</td></tr>}
                 </tbody>   
             </table>                
         </div>
