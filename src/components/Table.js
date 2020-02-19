@@ -21,7 +21,7 @@ function Table({allUsers}) {
         date: ''
     });
 
-
+    // update the sorting state depending on the current sorting state
     const applySort = function(event){
         let field = event.target.id;
         if (sorting.field !== field) {
@@ -37,14 +37,14 @@ function Table({allUsers}) {
         }
     }
 
+    // update the filter state
     const applyFilter = function(event){
-        // console.log(event.target.id);
-        // console.log(event.target.value);
         let field = event.target.id;
         let value = event.target.value;
         setFilter({...filter, [field]: value});
     }
 
+    // check which sorting symbol to show
     const checkSortSymbol = function(field){
         if (sorting.field === field && sorting.sortOn) {
             if (sorting.order === 'asc') {
