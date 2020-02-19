@@ -29,7 +29,12 @@ function App() {
   return (
     <div>
       <Navbar/>
-      <Table allUsers = {allUsers}/>
+      <div className='mt-5 ml-3 mr-3'>
+        <h5>Welcome to the employee directory</h5>
+        <h7>Click on the field to sort it ascending, click another time to sort descending.</h7><br></br>
+        <h7>Use the input fields under the field names to filter corresponding field values.</h7>
+        <Table allUsers = {allUsers}/>
+      </div>
     </div>
   );
 }

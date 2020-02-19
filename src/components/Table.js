@@ -90,9 +90,8 @@ function Table({allUsers}) {
 
     return (
         <div>
-            <h2>The table goes here</h2>
-            <table>
-                <thead>
+            <table className='table table-striped mt-5'>
+                <thead className='thead-dark'>
                 <tr>
                     <th id='name' onClick = {applySort}>Name <span>{checkSortSymbol('name')}</span></th>
                     <th id='img'>Image</th>
@@ -101,11 +100,11 @@ function Table({allUsers}) {
                     <th id='date' onClick = {applySort}>Date joined <span>{checkSortSymbol('date')}</span></th>
                 </tr>
                 <tr>
-                    <th><input id='name' onChange = {applyFilter}></input></th>
+                    <th><input id='name' className='form-control-sm' onChange = {applyFilter}></input></th>
                     <th></th>
-                    <th><input id='email' onChange = {applyFilter}></input></th>
-                    <th><input id='userId' onChange = {applyFilter}></input></th>
-                    <th><input id='date' onChange = {applyFilter}></input></th>
+                    <th><input id='email' className='form-control-sm' onChange = {applyFilter}></input></th>
+                    <th><input id='userId' className='form-control-sm' onChange = {applyFilter}></input></th>
+                    <th><input id='date' className='form-control-sm' onChange = {applyFilter}></input></th>
                 </tr>
                 </thead>
                 <tbody>
