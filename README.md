@@ -21,3 +21,6 @@ The filtering is done by inputing the desired search string in the input field u
 ## Sorting and Filtering
 
 ![screenshot3](assets/screenshots/screenshot3.PNG)
+
+## Deployed Application: 
+https://kv-react-employee-directory.herokuapp.com
